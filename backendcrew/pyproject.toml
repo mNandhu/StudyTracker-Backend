@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "backendcrew"
+version = "0.1.0"
+description = "backendcrew using crewAI"
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<=3.13"
+crewai = { extras = ["tools"], version = ">=0.63.2,<1.0.0" }
+
+
+[tool.poetry.scripts]
+backendcrew = "backendcrew.main:run"
+run_crew = "backendcrew.main:run"
+train = "backendcrew.main:train"
+replay = "backendcrew.main:replay"
+test = "backendcrew.main:test"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

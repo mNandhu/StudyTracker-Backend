@@ -1,0 +1,48 @@
+#organize_resources_task:
+#  description: >
+#    Given Query: {query}
+#    Organize the student’s notes, reference materials, and resources. Ensure that all resources are easy to access and well categorized.
+#  expected_output: >
+#    A list of organized resources with categories and links to access them. No duplicates or missing resources.
+#  agent: notebook_resource_manager
+#
+#create_study_schedule_task:
+#  description: >
+#    Given Query: {query}
+#    Create a study schedule for the week, ensuring that all study sessions are planned based on the student's available time. Include short breaks and revision periods.
+#  expected_output: >
+#    A study schedule for the week with allocated study periods, breaks, and revision time, formatted as a structured list.
+#  agent: schedule_agent
+#
+#analyze_performance_task:
+#  description: >
+#    Given Query: {query}
+#    Analyze the student's recent performance and suggest areas for improvement. Look at test scores, assignment results, and general progress.
+#  expected_output: >
+#    A report detailing the student's performance with suggestions on how to improve time management, focus, and retention of information.
+#  agent: performance_analyst
+
+miscellaneous_task_handling:
+  description: >
+    Given Query: {query}
+    Answer non-study-related questions, such as "What’s the weather?" using an external search tool, and handle reminders for the student.
+  expected_output: >
+    A list of responses to external queries, such as weather, or reminders set by the student.
+  agent: misc_agent
+
+route_query_task:
+  description: >
+    Query: {query}
+    
+    Based on the above query, determine which agent should handle the task. 
+    Depending on the content of the query, delegate the task to the most appropriate agent:
+    - Misc Agent for handling general queries like weather or reminders, or simple math.
+#    - Performance Analyst for tracking and analyzing study performance.
+#    - Notebook Resource Manager for managing study resources.
+#    - Schedule Agent for creating and updating the study schedule.
+
+  expected_output: >
+    The Manager Agent must decide which agent will handle the query and delegate the task accordingly.
+    The final output should include a response from the selected agent.
+
+
